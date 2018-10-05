@@ -3,15 +3,15 @@ using namespace std;
 
 int top=-1;
 
-push(int stack[],int temp){
+void push(int stack[],int temp){
 	stack[++top]=temp;
 }
 
-pop(stack){
+void pop(){
 	top--;
 }
 
-length(){
+void length(){
 	cout<<"Current length of stack is :"<<top+1<<endl;
 }
 int main(){
@@ -28,7 +28,7 @@ int main(){
 			cout<<"Operation Succesfull"<<endl;
 		}
 		else if(exit=="pop"){
-			pop(stack);
+			pop();
 		}
 		else if(exit=="length"){
 			length();

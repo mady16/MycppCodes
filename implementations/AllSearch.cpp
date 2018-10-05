@@ -1,4 +1,4 @@
-//Written by Mental
+
 
 #include <iostream>
 #include <algorithm>
@@ -43,7 +43,6 @@ int interpolationSearch(int arr[], int n, int x)
     return -1;
 }
 
-//Written by Mental
 
 int main(){
 	int n;
