@@ -24,37 +24,32 @@ int main(){
     //     freopen("input.txt", "r", stdin);
     //     freopen("output.txt","w", stdout);
     // #endif
-    int r,c;
-    cin>>r>>c;
-    vector<string> rows;
-
+    int n,v;
+    cin>>n>>v;
     int total = 0;
-    foreq(i,0,r-1){
-        string t;
-        cin>>t;
-        size_t pos = t.find('S');
-        if(pos != string::npos){
-            rows.push_back(t);
-        }else{
-            total += c;
-        }
-    }
 
-    if(rows.size())
-    foreq(i,0,c-1){
-        bool contain = false;
-        foreq(j,0,rows.size()-1){
-            if(rows[j][i] == 'S'){
-                contain = true;
-                break;
+    int items,price;
+    vector<int> sellers;
+    foreq(i,0,n-1){
+        cin>>items;
+        bool flag = true;
+        foreq(j,0,items-1){
+            cin>>price;
+            if(price < v && flag){
+                total++;
+                flag = false;
+                sellers.push_back(i+1);
             }
-        }
-        if(!contain){
-            total += rows.size();
         }
     }
 
     print(total);
+
+    foreq(i,0,total-1){
+        cout<<sellers[i]<<" ";
+    }
+
+    cout<<"\n";
 
     return 0;
 }
