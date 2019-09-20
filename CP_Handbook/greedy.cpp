@@ -4,7 +4,7 @@
 #include<algorithm>
 #include<vector>
 #include<queue>
-#include<unordered_set>
+#include<map>
 using namespace std;
 
 typedef long long ll;
@@ -76,18 +76,18 @@ int main(){
     print(minimumCoins(vector<int>{1,2,5,10}, 123));
 
     string message = "ABCDCDABAE";
-    unordered_multiset<char> counts;
+    map<char, int> counts;
 
     for(auto a: message){
-        counts.insert(a);
+        counts[a]++;
     }
 
     priority_queue<struct Node*, vector<struct Node*>, NodeGreater > minq;
 
     for(auto a: counts){
         struct Node *temp = new Node;
-        temp->chr = a;
-        temp->count = counts.count(a);
+        temp->chr = a.first;
+        temp->count = a.second;
         temp->left = NULL;
         temp->right = NULL;
         minq.push(temp);
